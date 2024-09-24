@@ -1,0 +1,143 @@
+---
+title: Real-time exchange rates data.
+description: 'This endpoint is ued to get the rate at which a base currency exchanges with other currencies. For example,
+USD to CAD, BRL, etc.'
+---
+
+## Description
+
+The `ExchangeRatesAPI.live()` method is used to communicate with this endpoint as seen below:
+
+`ExchangeRatesAPI.live(base, target=value)`
+
+## Parameters
+
+<ParamField path="base" type="string" required>
+The base currency to get the latest exchange rates for, e.g GBP. 
+It must be a currency code supported by AbstractAPI.
+</ParamField>
+
+<ParamField path="target" type="string">
+The target currency or currencies to get exchange rates of.
+Comma separated codes can also be used, e.g "target=USD,CAD,BRL". 
+This argument will limit the rates in the response to the selected currencies
+</ParamField>
+
+## Usage
+
+```python
+from abstract_api import ExchangeRatesAPI
+
+api_key = "your-exchange-rates-api-key"
+
+api = ExchangeRatesAPI(api_key)
+response = api.live("GBP")
+
+print(response)
+
+```
+
+
+## Response
+```
+{
+    'base': 'GBP', 
+    'last_updated': 1726665300, 
+    'exchange_rates': {
+        'EUR': 1.191143, 
+        'USD': 1.328839, 
+        'JPY': 190.022989, 
+        'BGN': 2.329637, 
+        'CZK': 29.875049, 
+        'DKK': 8.884971, 
+        'HUF': 469.965338, 
+        'PLN': 5.081176,
+        'RON': 5.92522,
+        'SEK': 13.480757, 
+        'CHF': 1.126821, 
+        'ISK': 181.649256, 
+        'NOK': 13.898014, 
+        'HRK': 8.497288, 
+        'RUB': 140.714371, 
+        'TRY': 45.21387, 
+        'AUD': 1.947756, 
+        'BRL': 7.175443, 
+        'CAD': 1.799817, 
+        'CNY': 9.38942, 
+        'HKD': 10.357224, 
+        'IDR': 20159.482091, 
+        'ILS': 4.990769, 
+        'INR': 111.163389, 
+        'KRW': 1764.761235, 
+        'MXN': 25.479733, 
+        'MYR': 5.59444, 
+        'NZD': 2.125594, 
+        'PHP': 73.790097, 
+        'SGD': 1.717032, 
+        'THB': 44.030589, 
+        'ZAR': 23.162246, 
+        'ARS': 106.265213, 
+        'DZD': 175.692558, 
+        'MAD': 12.469981, 
+        'TWD': 38.777191, 
+        'BTC': 3.1e-05, 
+        'ETH': 0.000521, 
+        'BNB': 0.004448, 
+        'DOGE': 16.669263, 
+        'XRP': 2.319867, 
+        'BCH': 0.005073, 
+        'LTC': 0.01834
+    }, 
+    'status': 200
+}
+```
+
+## Response Fields
+
+<ResponseField name="base" type="string">
+The base currency used to make the request
+</ResponseField>
+
+<ResponseField name="last_updated" type="integer">
+A Unix timestamp of when the returned data was last updated
+</ResponseField>
+
+<ResponseField name="exchange_rates" type="Object">
+A JSON object of the target currencies. If none is passed, (quantity) is returned.
+</ResponseField>
+
+
+## Limit response Fields
+
+You can limit the response by specifying a comma-separated list of target currency codes in your query.  
+
+### Usage
+
+```python
+from abstract_api import ExchangeRatesAPI
+
+api_key = "your-exchange-rates-api-key"
+
+api = ExchangeRatesAPI(api_key)
+
+// Include "target" as a keyword argument
+response = api.live("GBP", target="USD,BRL,LTC")
+
+print(response)
+
+```
+
+### Response
+
+```
+{
+    'base': 'GBP', 
+    'last_updated': 1726665300, 
+    'exchange_rates': {
+        'USD': 1.328839, 
+        'BRL': 7.175443, 
+        'LTC': 0.01834
+    }, 
+    'status': 200
+}
+```

@@ -53,15 +53,41 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "installation",
+        "authentication"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "APIs",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
+        {
+          "group": "Exchange API",
+          "pages": [
+            "essentials/exchange/overview",
+            "essentials/exchange/live", 
+            "essentials/exchange/historical",
+            "essentials/exchange/conversion"
+          ]
+        },
+        {
+          "group": "Vat API",
+          "pages": [
+            "essentials/vat/vatApi",
+            "essentials/markdown", 
+            "essentials/code"
+          ]
+        },
+
+        {
+          "group": "Ip API",
+          "pages": [
+            "essentials/ip/ipApi",
+            "essentials/markdown", 
+            "essentials/code"
+          ]
+        },
+
+
         "essentials/images",
         "essentials/settings",
         "essentials/navigation",

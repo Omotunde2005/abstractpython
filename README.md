@@ -5,6 +5,4 @@ An unofficial python wrapper for [AbstractAPI](https://www.abstractapi.com/). Py
 
 ## Disclaimer
 
-This is not an official library by the team @AbstractAPI. This should not be considered as a direct replacement of AbstractAPI API suites. Rather, it is a bunch of helper classes that python developers can use to communicate easier with any of the APIs.
-
-It is also open-sourced and basically for learning purposes.
+This is not an official library by the team @AbstractAPI. This should not be considered as a direct replacement of AbstractAPI API suites. Rather, it is a bunch of helper classes that python developers can use to communicate easier with any of the APIs. 

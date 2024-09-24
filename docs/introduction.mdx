@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: 'Welcome to the home of your new documentation'
+description: 'Welcome to the documentation for `abstract-python` library'
 ---
 
 <img
@@ -14,58 +14,118 @@ description: 'Welcome to the home of your new documentation'
   alt="Hero Dark"
 />
 
-## Setting up
+## Overview
 
-The first step to world-class documentation is setting up your editing environments.
+The `abstract-python` library is a Python wrapper for APIs by [AbstractAPI](https://www.abstractapi.com/). It contains helper classes
+that allow Python developers use these APIs without worrying about the endpoints. It also does type validation on each request before they are
+sent to the API server. This helps to prevent wastage of credits, since each API request to the server counts; whether successful or otherwise. 
+
+The library currrently supports the Exchange API, IP Geolocation API, and the VAT API.
+
+<Note>
+    This is not an official library by the team @AbstractAPI. It is an open source project and not intended for profit-making. It is safe to use
+    by anyone.
+
+</Note>
+
+## Quickstart
 
 <CardGroup cols={2}>
   <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
+    title="Installation"
+    icon="download"
+    href="installation"
   >
-    Get your docs set up locally for easy development
+    Learn how to install the library
   </Card>
+
   <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
+    title="Authentication"
+    icon="key"
+    href="authentication"
   >
-    Preview your changes before you push to make sure they're perfect
+    Get api-keys and authenticate with the library
   </Card>
+
 </CardGroup>
 
-## Make it yours
-
-Update your docs to your brand and add valuable content for the best user conversion.
-
 <CardGroup cols={2}>
   <Card
-    title="Customize Style"
-    icon="palette"
+    title="Exchange API"
+    icon="money-bills"
+    href="essentials/exchange/Overview"
+  >
+    Get exchange rates with the API
+  </Card>
+
+  <Card
+    title="IP Geolocation API"
+    icon="location-dot"
     href="https://mintlify.com/docs/settings/global"
   >
-    Customize your docs to your company's colors and brands
+    Get the IP address of your users
   </Card>
+
+</CardGroup>
+
+<CardGroup cols={2}>
+
   <Card
-    title="Reference APIs"
-    icon="code"
+    title="VAT API"
+    icon="cookie"
     href="https://mintlify.com/docs/api-playground/openapi"
   >
-    Automatically generate endpoints from an OpenAPI spec
+    Calculate VAT for products in a country 
+  
   </Card>
+
   <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
+    title="API Errors"
+    icon="circle-exclamation"
+    href="https://mintlify.com/docs/api-playground/openapi"
   >
-    Build interactive features and designs to guide your users
+    Identify error messages and debugging tips. 
   </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
+
 </CardGroup>
+
+## Responses
+
+All responses are returned as a JSON object. Each response has a "status_code" field to verify the request success. Below is a sample response for a successful request:
+
+```python
+
+{
+  "status_code": 200,
+  // Other response data
+}
+```
+
+## Errors
+
+Errors in `abstract-python` are in two(2) variants.
+
+- **Regular Python exceptions:** 
+
+A common exception you will encounter is the `TypeError`, usually from wrong data types submitted as arguments.
+
+- **JSON error messages:**
+
+These are JSON objects with detailed description of the error. They are often self-explanatory. However, if you will like
+to check out the types of errors, you can check it [here](a_link_to_errors_page). Below is a sample error message:
+
+```python
+// Authorization error
+
+{
+  "error": {
+    "message":"A validation error occurred.",
+    "code":"validation_error",
+    "details":{
+      "api_key":["This field may not be blank."],
+      "country_code":["\"fu\" is not a valid choice."]
+    }
+  },
+  "status_code": 401
+}
+```

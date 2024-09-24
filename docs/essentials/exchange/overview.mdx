@@ -1,0 +1,82 @@
+---
+title: Overview
+description: 'Fast and lightweight currency exchange API'
+---
+
+The Exchange Rates API can be used to get real-time exchange rates, past/historical rates, and quick currency conversion betwwen currencies.
+It supports 80+ currencies. In `abstract-python`, the `ExchangeRatesAPI` class is used to communicate with this API.
+
+## Endpoints
+
+<CardGroup cols={2}>
+  <Card
+    title="Real-time exchange rates"
+    icon="palette"
+    href="essentials/exchange/live"
+  >
+    Get real time exchange rates between selected currencies
+  </Card>
+  <Card
+    title="Currency conversion"
+    icon="code"
+    href="https://mintlify.com/docs/api-playground/openapi"
+  >
+    Covert one currency to another by selecting a base amount. e.g 5 USD to GBP  
+  
+  </Card>
+</CardGroup>
+
+<CardGroup cols={2}>
+  <Card
+    title="Historical exchange rates"
+    icon="code"
+    href="https://mintlify.com/docs/api-playground/openapi"
+  >
+    Get a detailed `json` record of past exchange rates within a specified peiod.  
+  </Card>
+
+</CardGroup>
+
+
+## Supported currency codes
+
+<Note>
+    This list was gotten directly from AbstractAPI [ExchangeRates API documentation]()
+</Note>
+
+AbstractAPI supports the following ISO 4217 currency codes:
+
+
+
+## Get currency codes programmatically
+
+With `abstract-python` you can get the supported currency codes as a Python List. See usage below:
+
+```python
+from abstract_api import CURRENCY_CODES
+
+print(CURRENCY_CODES)
+```
+
+Response
+```python
+>>> ["AF", "AL", "DZ", "AS", "AD", "AO", "AI", "AG", "AR", "AM", "AW", "AU",
+    "AT", "AZ", "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO",
+    "BA", "BW", "BR", "VG", "BN", "BG", "BF", "BI", "CV", "KH", "CM", "CA",
+    "KY", "CF", "TD", "CL", "CN", "CO", "KM", "CG", "CD", "CK", "CR", "CI"]
+```
+
+### Use case
+
+If your Python app allows users to enter currency codes independently, you may need to validate user inputs before querying the `ExchangeRatesAPI` class. 
+
+See usage below:
+
+```python
+from abstract_api import CURRENCY_CODES
+
+base_currency = input("Enter a currency code")
+
+if base_currency in CURRENCY_CODES:
+    print("Yes")
+```

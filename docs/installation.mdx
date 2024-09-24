@@ -1,0 +1,53 @@
+---
+title: 'Installation'
+description: 'Learn how to install the `abstract-python` library'
+---
+
+## Setup your local environment
+
+Before installing the library, create a virtual environment in your project directory through the steps below:
+
+<Note>
+    This guide uses virtualenv to create a virtual environment.
+</Note>
+
+1. Run the command below in your terminal to create a virtual environment 
+```bash
+virtualenv env
+```
+
+2. Activate the virtual environment
+
+<p>**Windows - using command prompt**</p>
+
+```powershell
+.\env\Scripts\activate\
+```
+
+**Unix/macOS using bash**
+```bash
+source ./env/bin/activate
+```
+
+**Run the command below to install `abstract-python`:**
+
+```powershell
+pip install abstract-python
+```
+
+## Usage
+If you will be using two or more of the available APIs, it is recommended to import the entire library as seen below:
+
+```python
+import abstract_api
+
+vatAPI = abstract_api.VatAPI()
+```
+
+For a single API use, we recommend the following:
+
+```python
+from abstract_api import VatAPI
+
+vatAPI = VatAPI()
+```
