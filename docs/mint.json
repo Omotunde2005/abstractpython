@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Abstract Python",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -17,35 +17,30 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Contact Us",
+      "url": "mailto:edunrilwan@gmail.com"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Package",
+    "url": "#"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
+  "tabs": [],
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "#"
     },
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "#"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "#"
     }
   ],
   "navigation": [
@@ -67,51 +62,33 @@
             "essentials/exchange/live", 
             "essentials/exchange/historical",
             "essentials/exchange/conversion"
-          ]
+          ],
+          "icon": "money-bills"
         },
         {
-          "group": "Vat API",
+          "group": "VAT API",
           "pages": [
-            "essentials/vat/vatApi",
-            "essentials/markdown", 
-            "essentials/code"
-          ]
+            "essentials/vat/overview",
+            "essentials/vat/vatApi"
+          ],
+          "icon":"cookie"
         },
 
         {
-          "group": "Ip API",
+          "group": "IP API",
           "pages": [
-            "essentials/ip/ipApi",
-            "essentials/markdown", 
-            "essentials/code"
-          ]
-        },
-
-
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+            "essentials/ip/overview",
+            "essentials/ip/ipApi"
+          ],
+          "icon": "location-dot"
+        }
       ]
     }
   ],
+  
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "x": "https://x.com/emiloju.py",
+    "github": "https://github.com/Omotunde2005",
+    "linkedin": "https://www.linkedin.com/edun-rilwan"
   }
 }
