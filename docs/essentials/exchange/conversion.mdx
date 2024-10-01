@@ -1,5 +1,115 @@
 ---
-title: Currency conversion.
-description: 'This endpoint is used to get the rate at which a base currency exchanges with other currencies. '
+title: Convert currency.
+description: 'This endpoint allows you to convert a specific amount of a currency to another currency.'
 icon: "money-bill-transfer"
 ---
+
+## Description
+
+The `ExchangeRatesAPI.convert()` method is used to communicate with this endpoint as seen below:
+
+`ExchangeRatesAPI.convert(base, target, Optional[date, base_amount])`
+
+## Query Parameters
+
+<ParamField path="base" type="String" required>
+The base currency to be converted. It must be a currency code supported by AbstractAPI.
+</ParamField>
+
+<ParamField path="target" type="String" required>
+The target currency to convert a base currency into. Only one target currency is permitted per request.
+</ParamField>
+
+<ParamField path="date" type="string">
+An historical date that the response must refer to. This parameter should be used if you want to get past exchange rates. 
+If blank, the response will be based on live rates. 
+The acceptable date format is: YYYY-MM-DD. 
+</ParamField>
+
+<ParamField path="base_amount" type="Float">
+A specific amount of the base currency to be converted.
+</ParamField>
+
+## Usage
+
+```python
+from abstract_python.abstract import ExchangeRatesAPI
+
+api_key = "your-exchange-rates-api-key"
+
+api = ExchangeRatesAPI(api_key)
+base = "GBP"
+target = "USD"
+response = api.convert(base, target)
+
+print(response)
+
+```
+
+
+## Result
+```
+{
+    'base': 'GBP', 
+    'target': 'USD', 
+    'base_amount': 1, 
+    'converted_amount': 1.340148, 
+    'exchange_rate': 1.340148, 
+    'last_updated': 1727615700, 
+    'status': 200
+}
+```
+
+## Response Fields
+
+<ResponseField name="base" type="String">
+The base currency used for the request
+</ResponseField>
+
+<ResponseField name="target" type="String">
+The target currency that the base currency is converted into
+</ResponseField>
+
+<ResponseField name="date" type="String">
+The date the rates were pulled from.
+</ResponseField>
+
+<ResponseField name="base_amount" type="Float">
+The specific amount of base currency that was converted.
+</ResponseField>
+
+<ResponseField name="converted_amount" type="Float">
+The base amount equivalent of the target currency.
+</ResponseField>
+
+<ResponseField name="exchange_rate" type="Float">
+The exchange rate used to convert the base amount from the base currency to the target currency.
+</ResponseField>
+
+<ResponseField name="status" type="integer">
+The status code of the response.
+</ResponseField>
+
+## Using optional parameters
+
+```python
+from abstract_python.abstract import ExchangeRatesAPI
+
+api_key = "your-exchange-rates-api-key"
+
+api = ExchangeRatesAPI(api_key)
+base = "GBP"
+target = "USD"
+date = "2024-02-10"
+base_amount = 5.0
+response = api.convert(base, target, base_amount=base_amount, date=date)
+
+print(response)
+
+```
+
+### Result
+
+```
+
+```

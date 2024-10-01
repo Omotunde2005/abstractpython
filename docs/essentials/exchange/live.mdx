@@ -1,6 +1,6 @@
 ---
-title: Live Exchange.
-description: 'This endpoint is ued to get the rate at which a base currency exchanges with other currencies. For example,
+title: Live Exchange Rates.
+description: 'This endpoint is used to get the rate at which a base currency exchanges with other currencies. For example,
 USD to CAD, BRL, etc.'
 icon: "chart-line"
 ---
@@ -9,9 +9,9 @@ icon: "chart-line"
 
 The `ExchangeRatesAPI.live()` method is used to communicate with this endpoint as seen below:
 
-`ExchangeRatesAPI.live(base, target=value)`
+`ExchangeRatesAPI.live(base, Optional[target])`
 
-## Parameters
+## Query Parameters
 
 <ParamField path="base" type="string" required>
 The base currency to get the latest exchange rates for, e.g GBP. 
@@ -20,19 +20,20 @@ It must be a currency code supported by AbstractAPI.
 
 <ParamField path="target" type="string">
 The target currency or currencies to get exchange rates of.
-Comma separated codes can also be used, e.g "target=USD,CAD,BRL". 
+A list of comma separated currency codes is also permitted, e.g "target=USD,CAD,BRL". 
 This argument will limit the rates in the response to the selected currencies
 </ParamField>
 
 ## Usage
 
 ```python
-from abstract_api import ExchangeRatesAPI
+from abstract_python.abstract import ExchangeRatesAPI
 
 api_key = "your-exchange-rates-api-key"
 
 api = ExchangeRatesAPI(api_key)
-response = api.live("GBP")
+base = "GBP"
+response = api.live(base)
 
 print(response)
 
@@ -104,9 +105,12 @@ A Unix timestamp of when the returned data was last updated
 </ResponseField>
 
 <ResponseField name="exchange_rates" type="Object">
-A JSON object of the target currencies. If none is passed, (quantity) is returned.
+A JSON object of AbstractAPI supported currencies and their rates. Result is limited if target currencies are specified in the request.
 </ResponseField>
 
+<ResponseField name="status" type="integer">
+The status code of the response.
+</ResponseField>
 
 ## Limit response Fields
 
@@ -115,20 +119,22 @@ You can limit the response by specifying a comma-separated list of target curren
 ### Usage
 
 ```python
-from abstract_api import ExchangeRatesAPI
+from abstract_python.abstract import ExchangeRatesAPI
 
 api_key = "your-exchange-rates-api-key"
 
 api = ExchangeRatesAPI(api_key)
+base = "GBP"
+target = "USD,BRL,LTC"
 
-// Include "target" as a keyword argument
-response = api.live("GBP", target="USD,BRL,LTC")
+# add "target" as a keyword argument
+response = api.live(base, target)
 
 print(response)
 
 ```
 
-### Response
+### Result
 
 ```
 {

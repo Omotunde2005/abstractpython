@@ -40,15 +40,15 @@ pip install abstract-python
 If you will be using two or more of the available APIs, it is recommended to import the entire library as seen below:
 
 ```python
-import abstract_api
+from abstract_python import abstract
 
-vatAPI = abstract_api.VatAPI()
+vatAPI = abstract.VatAPI()
 ```
 
 For a single API use, we recommend the following:
 
 ```python
-from abstract_api import VatAPI
+from abstract_python.abstract import VatAPI
 
 vatAPI = VatAPI()
 ```

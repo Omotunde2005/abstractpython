@@ -4,7 +4,7 @@ description: 'Fast and lightweight currency exchange API'
 icon: "binoculars"
 ---
 
-The Exchange Rates API can be used to get real-time exchange rates, past/historical rates, and quick currency conversion betwwen currencies.
+The Exchange Rates API can be used to get real time exchange rates, past/historical rates, and quick currency conversion betwwen currencies.
 It supports 80+ currencies. In `abstract-python`, the `ExchangeRatesAPI` class is used to communicate with this API.
 
 ## Endpoints
@@ -41,12 +41,7 @@ It supports 80+ currencies. In `abstract-python`, the `ExchangeRatesAPI` class i
 
 ## Supported currency codes
 
-<Note>
-    This list was gotten directly from AbstractAPI [ExchangeRates API documentation]()
-</Note>
-
-AbstractAPI supports the following ISO 4217 currency codes:
-
+AbstractAPI supports ISO 4217 currency codes which can be found [here](https://docs.abstractapi.com/exchange-rates#currency-codes-of-supported-currencies)
 
 
 ## Get currency codes programmatically
@@ -54,7 +49,7 @@ AbstractAPI supports the following ISO 4217 currency codes:
 With `abstract-python` you can get the supported currency codes as a Python List. See usage below:
 
 ```python
-from abstract_api import CURRENCY_CODES
+from abstract_python.abstract import CURRENCY_CODES
 
 print(CURRENCY_CODES)
 ```
@@ -74,7 +69,7 @@ If your Python app allows users to enter currency codes independently, you may n
 See usage below:
 
 ```python
-from abstract_api import CURRENCY_CODES
+from abstract_python.abstract import CURRENCY_CODES
 
 base_currency = input("Enter a currency code")
 

@@ -138,7 +138,7 @@ class ExchangeRatesAPI:
             params["date"] = date
         
         if base_amount:
-            self.__type_validation(str, base_amount)
+            self.__type_validation(float, base_amount)
             params["base_amount"] = base_amount
 
         url = self.__ratesURL + "convert"
