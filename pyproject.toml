@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "abstract-python"
-version = "0.1.2"
+version = "0.1.3"
 description = "A wrapper for all AbstractAPI APIs"
 authors = ["Edun Rilwan <edunrilwan@gmail.com>"]
 license = "MIT"

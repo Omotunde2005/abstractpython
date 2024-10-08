@@ -44,7 +44,7 @@ print(response)
 ```
 
 
-## Result
+### Result
 ```
 {
     'base': 'GBP', 
@@ -65,21 +65,7 @@ print(response)
         'NOK': 13.341526, 
         'TRY': 38.684106, 
         'AUD': 1.936213, 
-        'BRL': 6.277739, 
-        'CAD': 1.695459, 
-        'CNY': 9.069405, 
-        'HKD': 9.859199, 
-        'IDR': 19714.501404, 
-        'ILS': 4.645248, 
-        'INR': 104.677317, 
-        'KRW': 1679.833801, 
-        'MXN': 21.588015, 
-        'MYR': 6.007608, 
-        'NZD': 2.054424, 
-        'PHP': 70.476358, 
-        'SGD': 1.697449, 
-        'THB': 45.318352, 
-        'ZAR': 23.975538
+        'BRL': 6.277739
     }, 
     'status': 200}
 ```
@@ -98,7 +84,7 @@ The specific date the rates were pulled from.
 A JSON Object with each target currency as the key and their respective rates as the value.
 </ResponseField>
 
-<ResponseField name="status" type="integer">
+<ResponseField name="status" type="Integer">
 The status code of the response.
 </ResponseField>
 
@@ -123,7 +109,7 @@ response = api.historical(base, date, target=target)
 
 ```
 
-### Result
+#### Result
 
 ```
 {

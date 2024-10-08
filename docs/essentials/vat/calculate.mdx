@@ -1,0 +1,131 @@
+---
+title: Calculate VAT.
+description: 'This endpoint allows you to calculate VAT for a specified price in a particular country.'
+icon: "calculator"
+---
+
+## Description
+
+The `VatAPI.calculate()` method is used to communicate with this endpoint as seen below:
+
+`VatAPI.calculate(amount, country_code, Optional[is_vat_incl, vat_category])`
+
+## Query Parameters
+
+<ParamField path="amount" type="String" required>
+The amount that you would like to get the VAT amount for or from
+</ParamField>
+
+<ParamField path="country_code" type="String" required>
+The two letter ISO 3166-1 alpha-2 code of the country in which the transaction takes place.
+</ParamField>
+
+<ParamField path="is_vat_incl" type="Boolean">
+If the amount already has VAT added and you’d like to do the reverse calculation and split out the amount and VAT, 
+set this parameter to true. If this parameter is not explicitly included it will default to false.
+</ParamField>
+
+<ParamField path="vat_category" type="String">
+Some countries offer a reduced VAT rate for certain categories of goods. 
+To determine if a reduced VAT is available and to apply it to the final amount, include the vat_category in the request.
+</ParamField>
+
+
+## Usage
+
+```python
+from abstract_python.abstract import VatAPI
+
+api_key = "your-vat-api-key"
+
+api = VatAPI(api_key)
+amount = "50"
+country_code = "BE"
+response = api.calculate(amount, country_code)
+
+print(response)
+
+```
+
+
+### Result
+```
+{
+    'amount_excluding_vat': '50.00', 
+    'amount_including_vat': '60.50', 
+    'vat_amount': '10.50', 
+    'vat_category': 'standard', 
+    'vat_rate': '0.210', 
+    'country': {
+        'code': 'BE', 
+        'name': 'Belgium'
+    }, 
+    'status': 200
+}
+```
+
+## Response Fields
+
+<ResponseField name="amount_excl_vat" type="Float">
+The amount excluding the VAT.
+</ResponseField>
+
+<ResponseField name="vat_amount" type="Float">
+The calculated amount of VAT.
+</ResponseField>
+
+<ResponseField name="amount_incl_vat" type="Float">
+The sum of the base amount and the VAT, i.e., `amount_excl_vat` + `vat_amount`.
+</ResponseField>
+
+<ResponseField name="vat_rate" type="Float">
+The VAT rate, from 0.01 to 0.99.
+</ResponseField>
+
+<ResponseField name="vat_category" type="String">
+The optional category of the purchase, used to determine whether it qualifies for a reduced rate. See below for a list of supported categories.
+</ResponseField>
+
+<ResponseField name="country_code" type="String">
+The two letter ISO 3166-1 alpha-2 code of the country in which the transaction takes place.
+</ResponseField>
+
+<ResponseField name="country_name" type="String">
+The name of the country the VAT is being calculated from.
+</ResponseField>
+
+## Using optional arguments
+
+```python
+from abstract_python.abstract import VatAPI
+
+api_key = "your-vat-api-key"
+
+api = VatAPI(api_key)
+amount = "50"
+country_code = "BE"
+is_vat_incl = True
+vat_category = "standard"
+response = api.calculate(amount, country_code)
+
+print(response)
+
+```
+
+
+### Result
+```
+{
+    'amount_excluding_vat': '50.00', 
+    'amount_including_vat': '60.50', 
+    'vat_amount': '10.50', 
+    'vat_category': 'standard', 
+    'vat_rate': '0.210', 
+    'country': {
+        'code': 'BE', 
+        'name': 'Belgium'
+    }, 
+    'status': 200
+}
+```
+

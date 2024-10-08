@@ -7,7 +7,6 @@ import os
 dotenv.load_dotenv()
 
 
-
 #API KEYS
 vat_api_key = os.environ.get("VAT_API_KEY", "")
 ip_api_key = os.environ.get("IP_API_KEY", "")

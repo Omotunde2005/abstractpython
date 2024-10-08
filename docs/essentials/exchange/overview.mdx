@@ -20,7 +20,7 @@ It supports 80+ currencies. In `abstract-python`, the `ExchangeRatesAPI` class i
   <Card
     title="Currency conversion"
     icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
+    href="essentials/exchange/conversion"
   >
     Covert one currency to another by selecting a base amount. e.g 5 USD to GBP  
   
@@ -31,7 +31,7 @@ It supports 80+ currencies. In `abstract-python`, the `ExchangeRatesAPI` class i
   <Card
     title="Historical exchange rates"
     icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
+    href="essentials/exchange/historical"
   >
     Get a detailed `json` record of past exchange rates within a specified peiod.  
   </Card>
@@ -44,35 +44,43 @@ It supports 80+ currencies. In `abstract-python`, the `ExchangeRatesAPI` class i
 AbstractAPI supports ISO 4217 currency codes which can be found [here](https://docs.abstractapi.com/exchange-rates#currency-codes-of-supported-currencies)
 
 
-## Get currency codes programmatically
+## Get currency codes
 
 With `abstract-python` you can get the supported currency codes as a Python List. See usage below:
 
 ```python
-from abstract_python.abstract import CURRENCY_CODES
+from abstract_python.abstract import EXCHANGE_SUPPORTED_CURRENCIES
 
-print(CURRENCY_CODES)
+print(EXCHANGE_SUPPORTED_CURRENCIES)
 ```
 
 ### Result
 ```python
->>> ["AF", "AL", "DZ", "AS", "AD", "AO", "AI", "AG", "AR", "AM", "AW", "AU",
-    "AT", "AZ", "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO",
-    "BA", "BW", "BR", "VG", "BN", "BG", "BF", "BI", "CV", "KH", "CM", "CA",
-    "KY", "CF", "TD", "CL", "CN", "CO", "KM", "CG", "CD", "CK", "CR", "CI"]
+>>> [
+    "ARS", "AUD", "BCH", "BGN", "BNB", "BRL", "BTC", "CAD", "CHF", "CNY", 
+    "CYP", "CZK", "DKK", "DOGE", "DZD", "EEK", "ETH", "EUR", "GBP", "GRD", 
+    "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "ISK", "JPY", "KRW", "LTC", 
+    "LTL", "LVL", "MAD", "MTL", "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", 
+    "RON", "RUB", "SEK", "SGD", "SIT", "SKK", "THB", "TRY", "TWD", "USD", 
+    "XRP", "ZAR"
+    ]
 ```
 
 ## Use case
 
-If your Python app allows users to enter currency codes independently, you may need to validate user inputs before querying the `ExchangeRatesAPI` class. 
+If your Python app allows users to enter currency codes themselves, you may need to validate user inputs before querying the `ExchangeRatesAPI` class. 
 
 See usage below:
 
 ```python
-from abstract_python.abstract import CURRENCY_CODES
+from abstract_python.abstract import EXCHANGE_SUPPORTED_CURRENCIES
 
 base_currency = input("Enter a currency code")
 
-if base_currency in CURRENCY_CODES:
-    print("Yes")
+if base_currency in EXCHANGE_SUPPORTED_CURRENCIES:
+    # Query an endpoint in the ExchangeRatesAPI class 
 ```
+
+
+## Error messages
+Refer to [this page](https://docs.abstractapi.com/exchange-rates#response-and-error-codes) for all possible error messages you may encounter.

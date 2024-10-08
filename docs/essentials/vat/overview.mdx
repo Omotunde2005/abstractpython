@@ -1,0 +1,81 @@
+---
+title: Overview
+description: 'The Vat API allows you to calculate the value added tax (VAT) on specific goods, and satisfy other VAT requirements in your app'
+icon: "binoculars"
+---
+
+The Vat API can be used to calculate VATs on goods, validate a company's VAT numbers, and get the latest VAT rates for specific goods in a country.
+In `abstract-python`, the `VatAPI` class is used to communicate with this API.
+
+## Endpoints
+
+<CardGroup cols={2}>
+  <Card
+    title="Validate VAT"
+    icon="palette"
+    href="essentials/vat/validate"
+  >
+    Validate VAT numbers in your app
+  </Card>
+  <Card
+    title="Calculate VAT"
+    icon="code"
+    href="essentials/vat/calculate"
+  >
+    Calculate the VAT fee on specific goods in a country
+  
+  </Card>
+</CardGroup>
+
+<CardGroup cols={2}>
+  <Card
+    title="VAT Categories"
+    icon="code"
+    href="exchange/vat/vat_categories"
+  >
+    Get a detailed `json` record of product Categories and their VAT fee in each country. 
+  </Card>
+
+</CardGroup>
+
+
+## Supported currency codes
+AbstractAPI supports ISO 4217 currency codes for the VAT API which can be found [here](https://docs.abstractapi.com/vat-validation#country-codes)
+
+
+## Get currency codes
+
+With `abstract-python` you can get the supported country codes as a Python List. See usage below:
+
+```python
+from abstract_python.abstract import VAT_SUPPORTED_COUNTRIES
+
+print(VAT_SUPPORTED_COUNTRIES)
+```
+
+### Result
+```python
+>>> [
+    "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "EL", "ES", "FI", "FR", "HR",
+    "HU", "IR", "IT", "LT", "LU", "LV", 
+    "MT", "NL", "PL", "PT", "RO", "SE", "SI", "SK", "XI",
+    ]
+```
+
+## Use case
+
+If your Python app allows users to enter country codes themselves, you may need to validate user inputs before querying the `VatAPI` class. 
+
+See usage below:
+
+```python
+from abstract_python.abstract import VAT_SUPPORTED_COUNTRIES
+
+base_currency = input("Enter a country code")
+
+if base_currency in VAT_SUPPORTED_COUNTRIES:
+    # Query an endpoint in the VatAPI class 
+```
+
+## Error messages
+Refer to [this page](https://docs.abstractapi.com/vat-validation#response-and-error-codes) for all possible error messages you may encounter.

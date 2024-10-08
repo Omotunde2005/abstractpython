@@ -40,7 +40,7 @@ print(response)
 ```
 
 
-## Result
+### Result
 ```
 {
     'base': 'GBP', 
@@ -74,21 +74,7 @@ print(response)
         'MXN': 25.479733, 
         'MYR': 5.59444, 
         'NZD': 2.125594, 
-        'PHP': 73.790097, 
-        'SGD': 1.717032, 
-        'THB': 44.030589, 
-        'ZAR': 23.162246, 
-        'ARS': 106.265213, 
-        'DZD': 175.692558, 
-        'MAD': 12.469981, 
-        'TWD': 38.777191, 
-        'BTC': 3.1e-05, 
-        'ETH': 0.000521, 
-        'BNB': 0.004448, 
-        'DOGE': 16.669263, 
-        'XRP': 2.319867, 
-        'BCH': 0.005073, 
-        'LTC': 0.01834
+        'PHP': 73.790097
     }, 
     'status': 200
 }
@@ -96,11 +82,11 @@ print(response)
 
 ## Response Fields
 
-<ResponseField name="base" type="string">
+<ResponseField name="base" type="String">
 The base currency used to make the request
 </ResponseField>
 
-<ResponseField name="last_updated" type="integer">
+<ResponseField name="last_updated" type="Integer">
 A Unix timestamp of when the returned data was last updated
 </ResponseField>
 
@@ -108,7 +94,7 @@ A Unix timestamp of when the returned data was last updated
 A JSON object of AbstractAPI supported currencies and their rates. Result is limited if target currencies are specified in the request.
 </ResponseField>
 
-<ResponseField name="status" type="integer">
+<ResponseField name="status" type="Integer">
 The status code of the response.
 </ResponseField>
 
@@ -134,7 +120,7 @@ print(response)
 
 ```
 
-### Result
+#### Result
 
 ```
 {

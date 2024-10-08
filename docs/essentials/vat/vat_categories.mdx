@@ -1,0 +1,74 @@
+---
+title: VAT categories.
+description: 'This endpoint allows you to get the latest VAT rates for certain product categories in a country.'
+icon: "table-list"
+---
+
+## Description
+
+The `VatAPI.categories()` method is used to communicate with this endpoint as seen below:
+
+`VatAPI.categories(country_code)`
+
+## Query Parameters
+
+<ParamField path="country_code" type="String" required>
+The two letter ISO 3166-1 alpha-2 code of the country in which the transaction takes place.
+</ParamField>
+
+
+## Usage
+
+```python
+from abstract_python.abstract import VatAPI
+
+api_key = "your-vat-api-key"
+
+api = VatAPI(api_key)
+country_code = "BE"
+response = api.categories(country_code)
+
+print(response)
+
+```
+
+
+### Result
+```
+[
+    {
+    'country_code': 'BE', 
+    'rate': '0.000', 
+    'category': 'newspapers', 
+    'description': "Supply, including on loan by libraries, of books, newspapers and 
+                    periodicals either on physical means of support or supplied electronically or both 
+                    (including brochures, leaflets and similar printed matter, children's picture, drawing or colouring books, music printed or in manuscript form, 
+                    maps and hydrographic or similar charts), other than publications wholly or predominantly devoted to advertising and other than publications wholly 
+                    or predominantly consisting of video content or audible music. Newspapers and some periodical publications under the conditions provided for in Royal 
+                    Decree N° 20, Table C, category I (on paper and digital) and that do not fall under the mentionned exceptions\nThe reduced rate only applies for 
+                    those goods in 4902."
+    },
+    
+    .....
+
+    {'status': 200}
+]
+```
+
+## Response Fields
+
+<ResponseField name="country_code" type="String">
+The two letter ISO 3166-1 alpha-2 code of the country in which the transaction takes place.
+</ResponseField>
+
+<ResponseField name="rate" type="String">
+The VAT rate for this specific category.
+</ResponseField>
+
+<ResponseField name="category" type="String">
+The name of the category.
+</ResponseField>
+
+<ResponseField name="description" type="String">
+A description about the category.
+</ResponseField>

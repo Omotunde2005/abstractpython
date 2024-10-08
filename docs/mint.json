@@ -69,19 +69,13 @@
           "group": "VAT API",
           "pages": [
             "essentials/vat/overview",
-            "essentials/vat/vatApi"
+            "essentials/vat/validate",
+            "essentials/vat/calculate",
+            "essentials/vat/vat_categories"
           ],
           "icon":"cookie"
         },
-
-        {
-          "group": "IP API",
-          "pages": [
-            "essentials/ip/overview",
-            "essentials/ip/ipApi"
-          ],
-          "icon": "location-dot"
-        }
+        "essentials/ip/ipApi"
       ]
     }
   ],

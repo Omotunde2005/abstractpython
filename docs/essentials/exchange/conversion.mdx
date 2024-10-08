@@ -20,7 +20,7 @@ The base currency to be converted. It must be a currency code supported by Abstr
 The target currency to convert a base currency into. Only one target currency is permitted per request.
 </ParamField>
 
-<ParamField path="date" type="string">
+<ParamField path="date" type="String">
 An historical date that the response must refer to. This parameter should be used if you want to get past exchange rates. 
 If blank, the response will be based on live rates. 
 The acceptable date format is: YYYY-MM-DD. 
@@ -29,6 +29,7 @@ The acceptable date format is: YYYY-MM-DD.
 <ParamField path="base_amount" type="Float">
 A specific amount of the base currency to be converted.
 </ParamField>
+
 
 ## Usage
 
@@ -47,7 +48,7 @@ print(response)
 ```
 
 
-## Result
+### Result
 ```
 {
     'base': 'GBP', 
@@ -111,5 +112,12 @@ print(response)
 ### Result
 
 ```
-
+{
+    'base': 'GBP', 
+    'target': 'USD', 
+    'base_amount': 5, 
+    'converted_amount': 6.303839, 
+    'exchange_rate': 1.260768, 
+    'date': '2024-02-10', 
+    'status': 200}
 ```

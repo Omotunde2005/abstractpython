@@ -1,0 +1,91 @@
+---
+title: Validate VAT numbers.
+description: "This endpoint allows you to validate a company's VAT number. It returns the company's data if the VAT number is valid"
+icon: "circle-check"
+---
+
+## Description
+
+The `VatAPI.validate()` method is used to communicate with this endpoint as seen below:
+
+`VatAPI.validate(vat_number)`
+
+## Query Parameters
+
+<ParamField path="vat_number" type="String" required>
+The VAT number you want to validate
+</ParamField>
+
+
+## Usage
+
+```python
+from abstract_python.abstract import VatAPI
+
+api_key = "your-vat-api-key"
+
+api = VatAPI(api_key)
+vat_number = "SE556656688001"
+response = api.validate(vat_number)
+
+print(response)
+
+```
+
+
+### Result
+```
+{
+    "vat_number": "SE556656688001",
+    "valid": true,
+    "company": {
+        "name": "GOOGLE SWEDEN AB",
+        "address": "GOOGLE IRLAND LTD \nM COLLINS, GORDON HOUSE \nBARROW STREET, DUBLIN 4 \nIRLAND"
+    },
+    "country": {
+        "code": "SE",
+        "name": "Sweden"
+    }
+}
+```
+
+## Response Fields
+
+<ResponseField name="vat_number" type="String">
+The VAT number to validate
+</ResponseField>
+
+<ResponseField name="is_vat_valid" type="Boolean">
+A boolean value to check if the VAT number is valid. True if VAT number is valid.
+</ResponseField>
+
+<ResponseField name="company_name" type="String">
+The company associated with the VAT number
+</ResponseField>
+
+<ResponseField name="company_address" type="String">
+The company's address.
+</ResponseField>
+
+<ResponseField name="company_country" type="String">
+The country where the company is located
+</ResponseField>
+
+<ResponseField name="company_country_code" type="String">
+The two letter ISO 3166-1 alpha-2 code of the country associated with the VAT number.
+</ResponseField>
+
+## Error response
+If you entered an invalid VAT number in the query, you will get an error message as seen below:
+```
+{
+    'error': {
+        'message': 'A validation error occurred.', 
+        'code': 'validation_error', 
+        'details': {
+            'vat_number': ['Invalid VAT number']
+        }
+    }, 
+    'status': 400
+}
+```

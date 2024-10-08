@@ -1,0 +1,69 @@
+---
+title: Handling Errors
+description: 'Learn how to handle errors dynamically without crashing your app'
+icon: "binoculars"
+---
+
+
+## Overview
+
+Errors are unavoidable especially if your query parameters are determined by user inputs. The `status` field in each response allows you to check the
+state of your request (successful or otherwise).
+
+## Example
+Below is a sample code that shows you how to handle errors/exceptions from the API in a FastAPI app:
+
+
+```python
+from abstract_python.abstract import VatAPI
+...
+
+api_key = "your-vat-api-key"
+
+api = VatAPI(api_key)
+
+...
+
+# A fastAPI route
+@app.post("/validate/vat/)
+async def validate_vat():
+    try:
+        response = await api.validate(vat_number)
+    except TypeError:
+        # Return an error message e.g Only string characters are required not integers
+    else:
+        status = response.get("status")
+        if status == 200 or status == 201:
+            # Return the response data or any other processing
+        
+        # Get the error details
+        error = response["error"]
+        error_message = error["message"]
+        error_details = [value for (key, value) in error["details"].items()]
+
+        response = {
+            "message": error_message,
+            "details": error_details
+        }
+
+        # Return the response
+
+```
+
+The `validate_vat` function accepts a vat_number argument which is a user input. This function uses the `VatAPI.validate` method to validate a VAT number.
+It uses exception handling to manage the two error kinds that might occur in your app - **TypeError and JSON error messages**.
+
+This setup works with any Python based web app. Also, it can be used with all the API classes and their methods. Simply replace the required methods and API classes where necessary.
+
+For reference, below is the error message for the query above:
+
+```
+{
+    'error': {
+        'message': 'A validation error occurred.', 
+        'code': 'validation_error', 
+        'details': {
+            'vat_number': ['Invalid VAT number']}}, 
+    'status': 400
+} 
+```

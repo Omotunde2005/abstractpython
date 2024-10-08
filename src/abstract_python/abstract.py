@@ -1,23 +1,20 @@
 import requests
 
-
-
-COUNTRY_CODES = [
-    "AF", "AL", "DZ", "AS", "AD", "AO", "AI", "AG", "AR", "AM", "AW", "AU",
-    "AT", "AZ", "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO",
-    "BA", "BW", "BR", "VG", "BN", "BG", "BF", "BI", "CV", "KH", "CM", "CA",
-    "KY", "CF", "TD", "CL", "CN", "CO", "KM", "CG", "CD", "CK", "CR", "CI"
-]
-
-CURRENCY_CODES = [
+EXCHANGE_SUPPORTED_CURRENCIES = [
     "ARS", "AUD", "BCH", "BGN", "BNB", "BRL", "BTC", "CAD", "CHF", "CNY", 
     "CYP", "CZK", "DKK", "DOGE", "DZD", "EEK", "ETH", "EUR", "GBP", "GRD", 
-    "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "ISK", "JPY", "KRW", "LTC",
-    "LTL", "LVL", "MAD", "MTL", "MXN", "MYR", "NOK", "NZD", "PHP", "PLN",
-    "RON", "RUB", "SEK", "SGD", "SIT", "SKK", "THB", "TRY", "TWD", "USD",
+    "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "ISK", "JPY", "KRW", "LTC", 
+    "LTL", "LVL", "MAD", "MTL", "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", 
+    "RON", "RUB", "SEK", "SGD", "SIT", "SKK", "THB", "TRY", "TWD", "USD", 
     "XRP", "ZAR"
 ]
 
+
+VAT_SUPPORTED_COUNTRIES = [
+    "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "EL", "ES", "FI", "FR", "HR",
+    "HU", "IR", "IT", "LT", "LU", "LV", 
+    "MT", "NL", "PL", "PT", "RO", "SE", "SI", "SK", "XI",
+]
         
 
 class VatAPI:
@@ -68,7 +65,7 @@ class VatAPI:
         url = self.__vatURL + "categories"
         response = requests.request("GET", url, params=params)
         json_response = response.json()
-        json_response["status"] = response.status_code
+        json_response.append({"status": response.status_code})
         return json_response
 
 

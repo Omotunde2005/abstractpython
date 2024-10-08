@@ -64,7 +64,7 @@ The library currrently supports the Exchange Rates API, IP Geolocation API, and 
   <Card
     title="IP Geolocation API"
     icon="location-dot"
-    href="https://mintlify.com/docs/settings/global"
+    href="essentials/ip/ipApi"
   >
     Get the IP address of your users
   </Card>
@@ -76,31 +76,31 @@ The library currrently supports the Exchange Rates API, IP Geolocation API, and 
   <Card
     title="VAT API"
     icon="cookie"
-    href="https://mintlify.com/docs/api-playground/openapi"
+    href="essentials/vat/overview"
   >
     Calculate VAT for products in a country 
   
   </Card>
 
   <Card
-    title="API Errors"
+    title="Handling Errors"
     icon="circle-exclamation"
-    href="https://mintlify.com/docs/api-playground/openapi"
+    href="errors"
   >
-    Identify error messages and debugging tips. 
+    See how to gracefully handle errors without crashing your app. 
   </Card>
 
 </CardGroup>
 
 ## Responses
 
-All responses are returned as a JSON object. Each response has a "status_code" field to verify the request success. Below is a sample response for a successful request:
+All responses are returned as a JSON object. Each response has a `status` field to verify the request success. Below is a sample response for a successful request:
 
 ```python
 
 {
-  "status_code": 200,
   // Other response data
+  "status": 200
 }
 ```
 
@@ -114,8 +114,8 @@ A common exception you will encounter is the `TypeError`, usually from wrong dat
 
 - **JSON error messages:**
 
-These are JSON objects with detailed description of the error. They are often self-explanatory. However, if you will like
-to check out the types of errors, you can check it [here](a_link_to_errors_page). Below is a sample error message:
+These are JSON objects with detailed description of the error. They are often self-explanatory.
+Below is a sample error message:
 
 ```python
 // Authorization error
@@ -129,6 +129,6 @@ to check out the types of errors, you can check it [here](a_link_to_errors_page)
       "country_code":["\"fu\" is not a valid choice."]
     }
   },
-  "status_code": 401
+  "status": 401
 }
 ```
