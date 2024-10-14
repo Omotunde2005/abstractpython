@@ -17,24 +17,19 @@
   },
   "topbarLinks": [
     {
-      "name": "Contact Us",
+      "name": "Contact",
       "url": "mailto:edunrilwan@gmail.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Contribute",
-    "url": "#"
+    "url": "https://github.com/Omotunde2005/abstractpython"
   },
   "tabs": [],
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "#"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
       "url": "#"
     }
   ],
@@ -76,8 +71,8 @@
   ],
   
   "footerSocials": {
-    "x": "https://x.com/emiloju.py",
+    "x": "https://x.com/emiloju_py",
     "github": "https://github.com/Omotunde2005",
-    "linkedin": "https://www.linkedin.com/edun-rilwan"
+    "linkedin": "https://www.linkedin.com/in/edun-rilwan/"
   }
 }
