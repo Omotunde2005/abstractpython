@@ -1,6 +1,6 @@
 ---
 title: Historical Exchange.
-description: 'This endpoint allows you to get exchange rates between currencies for a specific date'
+description: 'This endpoint allows you to get exchange rates record for a specific date'
 icon: "clock-rotate-left"
 ---
 
@@ -11,6 +11,7 @@ The `ExchangeRatesAPI.historical()` method is used to communicate with this endp
 `ExchangeRatesAPI.historical(base, date, Optional[target])`
 
 ## Query Parameters
+Below are the query parameters for this method:
 
 <ParamField path="base" type="String" required>
 The base currency to be converted. It must be a currency code supported by AbstractAPI.
@@ -18,16 +19,17 @@ The base currency to be converted. It must be a currency code supported by Abstr
 
 <ParamField path="date" type="String" required>
 A specific date in the past that the response must refer to.
-The acceptable date format is: YYYY-MM-DD. 
+The acceptable date format is: YYYY-MM-DD, e.g 2005-02-30.
 </ParamField>
 
 <ParamField path="target" type="String">
-The target currency or currencies to get exchange rates of.
+The target currency or currencies that the **base currency** is converted into.
 A list of comma separated currency codes is also permitted, e.g "target=USD,CAD,BRL". 
-This argument will limit the rates in the response to the selected currencies
+This argument will limit the response data to the selected currencies
 </ParamField>
 
 ## Usage
+Below is a code snippet to query the `ExchangeRatesAPI.historical()` method:
 
 ```python
 from abstract_python.abstract import ExchangeRatesAPI
@@ -43,8 +45,8 @@ print(response)
 
 ```
 
+Below is the response data:
 
-### Result
 ```
 {
     'base': 'GBP', 
@@ -94,6 +96,7 @@ The status code of the response.
 You can limit the response by specifying a comma-separated list of target currency codes in your query.  
 
 ### Usage
+Below is a code snippet to limit response data:
 
 ```python
 from abstract_python.abstract import ExchangeRatesAPI
@@ -109,7 +112,7 @@ response = api.historical(base, date, target=target)
 
 ```
 
-#### Result
+Below is the response data:
 
 ```
 {

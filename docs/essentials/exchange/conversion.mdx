@@ -11,6 +11,7 @@ The `ExchangeRatesAPI.convert()` method is used to communicate with this endpoin
 `ExchangeRatesAPI.convert(base, target, Optional[date, base_amount])`
 
 ## Query Parameters
+Below are the query parameters for this method:
 
 <ParamField path="base" type="String" required>
 The base currency to be converted. It must be a currency code supported by AbstractAPI.
@@ -21,9 +22,9 @@ The target currency to convert a base currency into. Only one target currency is
 </ParamField>
 
 <ParamField path="date" type="String">
-An historical date that the response must refer to. This parameter should be used if you want to get past exchange rates. 
+An historical date that the response must refer to. This parameter should be used if you want to get past exchange rates records. 
 If blank, the response will be based on live rates. 
-The acceptable date format is: YYYY-MM-DD. 
+The acceptable date format is: YYYY-MM-DD, e.g 2005-02-30 
 </ParamField>
 
 <ParamField path="base_amount" type="Float">
@@ -32,6 +33,7 @@ A specific amount of the base currency to be converted.
 
 
 ## Usage
+Below is a code snippet to query the `ExchangeRatesAPI.convert()` method:
 
 ```python
 from abstract_python.abstract import ExchangeRatesAPI
@@ -48,7 +50,8 @@ print(response)
 ```
 
 
-### Result
+Below is the response data:
+
 ```
 {
     'base': 'GBP', 
@@ -80,7 +83,7 @@ The specific amount of base currency that was converted.
 </ResponseField>
 
 <ResponseField name="converted_amount" type="Float">
-The base amount equivalent of the target currency.
+The base amount equivalent of the base currency in the target currency.
 </ResponseField>
 
 <ResponseField name="exchange_rate" type="Float">
@@ -92,6 +95,7 @@ The status code of the response.
 </ResponseField>
 
 ## Using optional parameters
+Below is a code snippet that uses the optional parameters:
 
 ```python
 from abstract_python.abstract import ExchangeRatesAPI
@@ -109,7 +113,7 @@ print(response)
 
 ```
 
-### Result
+Below is the response data:
 
 ```
 {

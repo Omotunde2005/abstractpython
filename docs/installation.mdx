@@ -1,6 +1,6 @@
 ---
 title: 'Installation'
-description: 'Learn how to install the `abstract-python` library'
+description: 'See how to install the `abstract-python` library'
 icon: "download"
 ---
 
@@ -36,7 +36,8 @@ source ./env/bin/activate
 pip install abstract-python
 ```
 
-## Usage
+## How to use the library
+
 If you will be using two or more of the available APIs, it is recommended to import the entire library as seen below:
 
 ```python
@@ -45,7 +46,12 @@ from abstract_python import abstract
 vatAPI = abstract.VatAPI()
 ```
 
-For a single API use, we recommend the following:
+<Info>
+    The example above uses the helper class for the VAT API.
+</Info>
+
+
+For a single API usage, we recommend the following:
 
 ```python
 from abstract_python.abstract import VatAPI

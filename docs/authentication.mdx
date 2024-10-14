@@ -13,12 +13,11 @@ icon: "key"
 
 ## Create API keys
 
-[AbstractAPI](https://www.abstractapi.com/) provides only one key per API. Each API have their separate keys used for
-authentication. 
+[AbstractAPI](https://www.abstractapi.com/) provides only one key per API. Each API have a unique key used for authentication. 
 
 Proceed to the [signup page](https://app.abstractapi.com/users/signup) to create an account. You will be redirected to the dashboard where all API keys can be found. 
 
-## Obtain API keys
+## How to obtain API keys
 
 <img
   className="block dark:hidden"
@@ -40,16 +39,16 @@ For example: `Primary key: "6f2e9012d48f4e0bac70283244ade5e4"`
 
 ## How to authenticate with an API key
 
-Each API class in `abstract-python` accepts an `api_key` argument when it is first initiated. The API key must correspond
+Each API class in `abstract-python` requires an `api_key` argument when it is first called. The key must correspond
 with the API class you intend to use. Below is a snippet on how to implement this:
 
 ```python
 from abstract_python import abstract
 
-vat_api_key = "your_unique_api_key"
+vat_api_key = "your_unique_vat_api_key"
 
 vatapi = abstract.VatAPI(vat_api_key)
 ```
 
-You can now start calling API methods associated with the authenticated class.
+You can now start calling the methods available in the authenticated class.
 

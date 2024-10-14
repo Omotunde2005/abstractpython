@@ -1,6 +1,6 @@
 ---
 title: Calculate VAT.
-description: 'This endpoint allows you to calculate VAT for a specified price in a particular country.'
+description: 'This endpoint allows you to calculate VAT on the prices of goods in a particular country.'
 icon: "calculator"
 ---
 
@@ -11,9 +11,12 @@ The `VatAPI.calculate()` method is used to communicate with this endpoint as see
 `VatAPI.calculate(amount, country_code, Optional[is_vat_incl, vat_category])`
 
 ## Query Parameters
+Below are the query parameters for this method:
 
 <ParamField path="amount" type="String" required>
-The amount that you would like to get the VAT amount for or from
+The amount that you would like to get the VAT amount for or from. 
+- **For**: That is, vat is not included in the price and you want to add it.
+- **From**: That is, vat is already included in the price and you want to extract it
 </ParamField>
 
 <ParamField path="country_code" type="String" required>
@@ -21,8 +24,8 @@ The two letter ISO 3166-1 alpha-2 code of the country in which the transaction t
 </ParamField>
 
 <ParamField path="is_vat_incl" type="Boolean">
-If the amount already has VAT added and you’d like to do the reverse calculation and split out the amount and VAT, 
-set this parameter to true. If this parameter is not explicitly included it will default to false.
+Used to declare if vat fee has already been included in the amount. If the amount already has VAT added, set this to True.  The response data will split out the amount and VAT.
+If this parameter is not set, it will default to false.
 </ParamField>
 
 <ParamField path="vat_category" type="String">
@@ -32,6 +35,7 @@ To determine if a reduced VAT is available and to apply it to the final amount, 
 
 
 ## Usage
+Below is a code snippet to query the `VatAPI.calculate()` method:
 
 ```python
 from abstract_python.abstract import VatAPI
@@ -47,8 +51,7 @@ print(response)
 
 ```
 
-
-### Result
+Below is the response data:
 ```
 {
     'amount_excluding_vat': '50.00', 
@@ -94,7 +97,10 @@ The two letter ISO 3166-1 alpha-2 code of the country in which the transaction t
 The name of the country the VAT is being calculated from.
 </ResponseField>
 
+
 ## Using optional arguments
+Below is a code snippet on how to use optional arguments in the `VatAPI.calculate()` method:
+
 
 ```python
 from abstract_python.abstract import VatAPI
@@ -113,7 +119,7 @@ print(response)
 ```
 
 
-### Result
+Below is the response data:
 ```
 {
     'amount_excluding_vat': '50.00', 

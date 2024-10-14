@@ -1,7 +1,7 @@
 ---
 title: Live Exchange Rates.
 description: 'This endpoint is used to get the rate at which a base currency exchanges with other currencies. For example,
-USD to CAD, BRL, etc.'
+**USD** to **CAD**, **BRL**, etc.'
 icon: "chart-line"
 ---
 
@@ -12,19 +12,21 @@ The `ExchangeRatesAPI.live()` method is used to communicate with this endpoint a
 `ExchangeRatesAPI.live(base, Optional[target])`
 
 ## Query Parameters
+Below are the query parameters for this method:
 
 <ParamField path="base" type="string" required>
-The base currency to get the latest exchange rates for, e.g GBP. 
+The **base currency** to get the latest exchange rates for, e.g GBP. 
 It must be a currency code supported by AbstractAPI.
 </ParamField>
 
 <ParamField path="target" type="string">
-The target currency or currencies to get exchange rates of.
+The target currency or currencies that the **base currency** is converted into.
 A list of comma separated currency codes is also permitted, e.g "target=USD,CAD,BRL". 
-This argument will limit the rates in the response to the selected currencies
+This will limit the response data to the specified currency codes.
 </ParamField>
 
 ## Usage
+Below is a code snippet to query the `ExchangeRatesAPI.live()` method:
 
 ```python
 from abstract_python.abstract import ExchangeRatesAPI
@@ -39,8 +41,8 @@ print(response)
 
 ```
 
+Below is the response data:
 
-### Result
 ```
 {
     'base': 'GBP', 
@@ -91,18 +93,19 @@ A Unix timestamp of when the returned data was last updated
 </ResponseField>
 
 <ResponseField name="exchange_rates" type="Object">
-A JSON object of AbstractAPI supported currencies and their rates. Result is limited if target currencies are specified in the request.
+A JSON object of currencies supported by AbstractAPI and their rates. Response is limited if target currencies are specified in the request.
 </ResponseField>
 
 <ResponseField name="status" type="Integer">
 The status code of the response.
 </ResponseField>
 
-## Limit response Fields
+## Limit response data
 
-You can limit the response by specifying a comma-separated list of target currency codes in your query.  
+You can limit the response data by specifying a comma-separated list of target currency codes in your query.  
 
 ### Usage
+Below is a code snippet to limit response data:
 
 ```python
 from abstract_python.abstract import ExchangeRatesAPI
@@ -120,7 +123,7 @@ print(response)
 
 ```
 
-#### Result
+Below is the response data:
 
 ```
 {
