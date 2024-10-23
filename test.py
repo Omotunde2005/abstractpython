@@ -1,4 +1,4 @@
-from src.abstract_python.abstract import *
+from abstract_python import *
 import unittest
 import dotenv
 import os
