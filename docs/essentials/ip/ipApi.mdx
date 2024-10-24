@@ -7,7 +7,7 @@ icon: "location-dot"
 ## Description
 The IP Geolocation API supports over 190+ countries. It allows you to submit an IP address and get its location data such as the country, city, region, etc.
 
-This API is so powerful that you may not need to specify the IP address of your current location. It automatically detects the IP address the query came from.
+This API is so powerful that you do not need to specify the IP address of your current location. It automatically detects the IP address the query came from.
 
 
 In `abstract-python`, the `IpAPI` class is used to make requests to Abstract's IP Geolocation API.
@@ -33,7 +33,7 @@ You can add this in your query as a comma separated list like this: `fields="cou
 Below is a sample code to query the API:
 
 ```python
-from abstract_python.abstract import IpAPI
+from abstract_python import IpAPI
 
 api_key = "your-ip-api-key"
 
@@ -41,7 +41,7 @@ api = IpAPI(IP_API_KEY)
 print(ip.ip_info())
 ```
 
-Below is the response data:
+Below is the response object:
 
 ```python
 {
@@ -230,11 +230,10 @@ Organization name.
 ## Specify Ip address
 You can also specify a unique IP address in your query to get its location data.
 
-### Usage
 Below is a code snippet to query the API by Ip address:
 
 ```python
-from abstract_python.abstract import IpAPI
+from abstract_python import IpAPI
 
 api_key = "your-ip-api-key"
 ip_address = "105.113.58.23"
@@ -243,7 +242,7 @@ api = IpAPI(IP_API_KEY)
 print(ip.ip_info(ip_address))
 ```
 
-The code above uses the IP address in the previous response data. Below is the response data for the code above:
+The code above uses the IP address in the previous response. Below is the response object for the code above:
 
 ```python
 {
@@ -282,12 +281,10 @@ The code above uses the IP address in the previous response data. Below is the r
 
 ## Limit response fields
 The IpAPI also allows you to limit the response data to certain fields.
-
-### Usage
 Below is an example code to limit response data using the `fields` argument:
 
 ```python
-from abstract_python.abstract import IpAPI
+from abstract_python import IpAPI
 
 api_key = "your-ip-api-key"
 ip_address = "105.113.58.23"
@@ -297,9 +294,7 @@ api = IpAPI(IP_API_KEY)
 print(ip.ip_info(ip_address, fields=fields))
 ```
 
-Below is the response data
-
-Below is the response data:
+Below is the response object:
 
 ```python
 {
@@ -313,4 +308,4 @@ Below is the response data:
 ```
 
 ## Error messages
-Refer to [this page](https://docs.abstractapi.com/ip-geolocation#response-and-error-codes) for all possible error messages you may encounter.
+Refer to [this page](https://docs.abstractapi.com/ip-geolocation#response-and-error-codes) for all possible error messages you may encounter while using the `IpAPI` class.

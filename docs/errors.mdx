@@ -15,7 +15,7 @@ Below is a sample code that shows you how to handle errors/exceptions from the A
 
 
 ```python
-from abstract_python.abstract import VatAPI
+from abstract_python import VatAPI
 ...
 
 api_key = "your-vat-api-key"
@@ -27,7 +27,7 @@ api = VatAPI(api_key)
 
 def validate_vat(vat_number):
     try:
-        response = await api.validate(vat_number)
+        response = api.validate(vat_number)
     except TypeError:
         # Return an error message e.g Only string characters are required not integers
     else:
@@ -43,4 +43,4 @@ The `validate_vat()` function accepts a vat_number argument which is a user inpu
 It uses exception handling to manage the two error kinds that might occur in your app - **TypeError and JSON error messages**.
 
 This setup works with any Python app(mobile, desktop, web). Also, it can be used with all the API classes and their methods. 
-Simply replace the required methods and API classes where necessary.
+Simply replace the required methods and API class where necessary.

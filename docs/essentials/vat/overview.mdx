@@ -33,7 +33,7 @@ In `abstract-python`, the `VatAPI` class is used to communicate with this API.
     icon="code"
     href="exchange/vat/vat_categories"
   >
-    Get a detailed `JSON` record of product categories and their VAT fee in each country. 
+    Get a detailed `JSON` object of product categories and their VAT fee in each country. 
   </Card>
 
 </CardGroup>
@@ -48,7 +48,7 @@ AbstractAPI supports ISO 4217 currency codes for the VAT API which can be found 
 With `abstract-python` you can get the supported country codes as a Python List. See usage below:
 
 ```python
-from abstract_python.abstract import VAT_SUPPORTED_COUNTRIES
+from abstract_python import VAT_SUPPORTED_COUNTRIES
 
 print(VAT_SUPPORTED_COUNTRIES)
 ```
@@ -63,22 +63,24 @@ Below is the result:
     ]
 ```
 
-## Use case
+### Use case
 
-If your app accepts country codes from users as input, you may need to validate these inputs before querying the `VatAPI` class. 
+If your app receives country codes from users, you may need to validate these inputs before querying the `VatAPI` class. 
 
 See usage below:
 
 ```python
-from abstract_python.abstract import VAT_SUPPORTED_COUNTRIES
+from abstract_python import VAT_SUPPORTED_COUNTRIES
 
-base_currency = input("Enter a country code")
+country_code = input("Enter a country code")
 
-if base_currency in VAT_SUPPORTED_COUNTRIES:
-    # Query any method within the VatAPI class with the country code
+if country code in VAT_SUPPORTED_COUNTRIES:
+    # continue with the app logic
+else:
+    print(f"{country_code} is not a supported country code")
 ```
 
 The code above is a simple console-based program. This technique can also be extended to other programs such as a web app or desktop app.
 
 ## Error messages
-Refer to [this page](https://docs.abstractapi.com/vat-validation#response-and-error-codes) for all possible error messages you may encounter.
+Refer to [this page](https://docs.abstractapi.com/vat-validation#response-and-error-codes) for all possible error messages you may encounter while using the `VatAPI` class.

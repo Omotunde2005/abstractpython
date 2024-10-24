@@ -1,7 +1,7 @@
 ---
 title: Live Exchange Rates.
-description: 'This endpoint is used to get the rate at which a base currency exchanges with other currencies. For example,
-**USD** to **CAD**, **BRL**, etc.'
+description: 'This endpoint is used to get the current rate for which a base currency exchanges with other currencies. For example,
+The rate for which **USD** exchanges for **CAD** or **BRL**'
 icon: "chart-line"
 ---
 
@@ -29,7 +29,7 @@ This will limit the response data to the specified currency codes.
 Below is a code snippet to query the `ExchangeRatesAPI.live()` method:
 
 ```python
-from abstract_python.abstract import ExchangeRatesAPI
+from abstract_python import ExchangeRatesAPI
 
 api_key = "your-exchange-rates-api-key"
 
@@ -41,7 +41,7 @@ print(response)
 
 ```
 
-Below is the response data:
+Below is the response object:
 
 ```
 {
@@ -100,15 +100,13 @@ A JSON object of currencies supported by AbstractAPI and their rates. Response i
 The status code of the response.
 </ResponseField>
 
-## Limit response data
+### Limit response data
 
 You can limit the response data by specifying a comma-separated list of target currency codes in your query.  
-
-### Usage
 Below is a code snippet to limit response data:
 
 ```python
-from abstract_python.abstract import ExchangeRatesAPI
+from abstract_python import ExchangeRatesAPI
 
 api_key = "your-exchange-rates-api-key"
 
@@ -123,7 +121,7 @@ print(response)
 
 ```
 
-Below is the response data:
+Below is the response object:
 
 ```
 {

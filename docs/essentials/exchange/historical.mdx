@@ -32,7 +32,7 @@ This argument will limit the response data to the selected currencies
 Below is a code snippet to query the `ExchangeRatesAPI.historical()` method:
 
 ```python
-from abstract_python.abstract import ExchangeRatesAPI
+from abstract_python import ExchangeRatesAPI
 
 api_key = "your-exchange-rates-api-key"
 
@@ -45,7 +45,7 @@ print(response)
 
 ```
 
-Below is the response data:
+Below is the response object:
 
 ```
 {
@@ -91,15 +91,13 @@ The status code of the response.
 </ResponseField>
 
 
-## Limit response Fields
+### Limit response fields
 
 You can limit the response by specifying a comma-separated list of target currency codes in your query.  
-
-### Usage
 Below is a code snippet to limit response data:
 
 ```python
-from abstract_python.abstract import ExchangeRatesAPI
+from abstract_python import ExchangeRatesAPI
 
 api_key = "your-exchange-rates-api-key"
 
@@ -112,7 +110,7 @@ response = api.historical(base, date, target=target)
 
 ```
 
-Below is the response data:
+Below is the response object:
 
 ```
 {

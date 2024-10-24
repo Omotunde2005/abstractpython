@@ -20,14 +20,14 @@ icon: "play"
 The `abstract-python` library is a Python SDK for APIs by [AbstractAPI](https://www.abstractapi.com/). It contains helper classes
 that allow Python developers use these APIs without having to know the endpoints off-hand. 
 
-It also does type validation on each query before they are sent to the API server. This prevents credits wastage since each query deducts a credit - 
+It also does type validation on each request data before they are sent to the API server. This helps to manage credits, as each request costs a credit - 
 whether successful or otherwise. 
 
 This SDK currrently supports the **[Exchange Rates API](https://docs.abstractapi.com/exchange-rates)**, 
 **[IP Geolocation API](https://docs.abstractapi.com/ip-geolocation)**, and the **[VAT API](https://docs.abstractapi.com/vat-validation)**.
 
 <Note>
-    This is not an official SDK by AbstractAPI. It is an open source project and safe to use by anyone.
+    This is not an official SDK by AbstractAPI but safe to use by anyone.
 </Note>
 
 ## Quickstart
@@ -38,7 +38,7 @@ This SDK currrently supports the **[Exchange Rates API](https://docs.abstractapi
     icon="download"
     href="installation"
   >
-    See how to install the `abstract-python` library
+    This page helps you to install the `abstract-python` library
   </Card>
 
   <Card
@@ -46,7 +46,7 @@ This SDK currrently supports the **[Exchange Rates API](https://docs.abstractapi
     icon="key"
     href="authentication"
   >
-    Get api-keys to authenticate with the library
+    This page helps you to get api-keys to authenticate with the library
   </Card>
 
 </CardGroup>
@@ -57,7 +57,7 @@ This SDK currrently supports the **[Exchange Rates API](https://docs.abstractapi
     icon="money-bills"
     href="essentials/exchange/Overview"
   >
-    Get real-time exchnage rates and much more between currencies 
+    This API helps you to get real-time exchnage rates and much more between currencies 
   </Card>
 
   <Card
@@ -65,7 +65,7 @@ This SDK currrently supports the **[Exchange Rates API](https://docs.abstractapi
     icon="location-dot"
     href="essentials/ip/ipApi"
   >
-    Retrive user's location data with their IP address.
+    This API helps you to retrive user's location data with their IP address.
   </Card>
 
 </CardGroup>
@@ -77,7 +77,7 @@ This SDK currrently supports the **[Exchange Rates API](https://docs.abstractapi
     icon="cookie"
     href="essentials/vat/overview"
   >
-    Calculate VAT fees for products in a country 
+    This API helps you to calculate VAT fees for products in a country 
   
   </Card>
 
@@ -86,14 +86,14 @@ This SDK currrently supports the **[Exchange Rates API](https://docs.abstractapi
     icon="circle-exclamation"
     href="errors"
   >
-    See how to gracefully handle errors without crashing your app. 
+    This page helps you to gracefully handle errors without crashing your app. 
   </Card>
 
 </CardGroup>
 
 ## Format for responses
 
-All responses are returned as a `JSON` object. Each response has a `status` field to verify the request success. Below is a sample response for a successful request:
+All responses are returned as a `JSON` object. Each response object has a `status` field that contains the response status code. Below is a sample response object for a successful request:
 
 ```python
 
@@ -102,6 +102,8 @@ All responses are returned as a `JSON` object. Each response has a `status` fiel
   "status": 200
 }
 ```
+
+The `status` field is used to verify the request's success. 
 
 ## Errors and exceptions
 
@@ -131,4 +133,4 @@ Below is a sample error message:
   "status": 401
 }
 ```
-More details on errors are provided in each API section. 
+More details on errors in each API section. 

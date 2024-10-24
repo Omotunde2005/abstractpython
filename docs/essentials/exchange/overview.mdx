@@ -33,7 +33,7 @@ It supports over 80+ currencies. In `abstract-python`, the `ExchangeRatesAPI` cl
     icon="code"
     href="essentials/exchange/historical"
   >
-    Get a detailed `JSON` record of past exchange rates within a specified peiod.  
+    Get a detailed `JSON` object of past exchange rates within a specified peiod.  
   </Card>
 
 </CardGroup>
@@ -49,7 +49,7 @@ AbstractAPI supports ISO 4217 currency codes which can be found [here](https://d
 With `abstract-python` you can get the supported currency codes as a Python List. See usage below:
 
 ```python
-from abstract_python.abstract import EXCHANGE_SUPPORTED_CURRENCIES
+from abstract_python import EXCHANGE_SUPPORTED_CURRENCIES
 
 print(EXCHANGE_SUPPORTED_CURRENCIES)
 ```
@@ -67,22 +67,24 @@ Here is the result below:
     ]
 ```
 
-## Use case
+### Use case
 
-If your app accepts currency codes from users as input, you may need to validate these inputs before querying the `ExchangeRatesAPI` class. 
+If your app receives currency codes from users, you may need to validate these inputs before querying the `ExchangeRatesAPI` class. 
 
 See usage below:
 
 ```python
-from abstract_python.abstract import EXCHANGE_SUPPORTED_CURRENCIES
+from abstract_python import EXCHANGE_SUPPORTED_CURRENCIES
 
 base_currency = input("Enter a currency code")
 
 if base_currency in EXCHANGE_SUPPORTED_CURRENCIES:
-    # Query a method within the ExchangeRatesAPI class 
+    # continue with the app logic 
+else:
+    print(f"{base_currency} is not a supported currency code")
 ```
 
 The code above is a simple console-based program. This technique can also be extended to other programs such as a web app or desktop app.
 
 ## Error messages
-Refer to [this page](https://docs.abstractapi.com/exchange-rates#response-and-error-codes) for all possible error messages you may encounter.
+Refer to [this page](https://docs.abstractapi.com/exchange-rates#response-and-error-codes) for all possible error messages you may encounter while using the `ExchangeRatesAPI` class.

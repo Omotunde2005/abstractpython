@@ -38,7 +38,7 @@ To determine if a reduced VAT is available and to apply it to the final amount, 
 Below is a code snippet to query the `VatAPI.calculate()` method:
 
 ```python
-from abstract_python.abstract import VatAPI
+from abstract_python import VatAPI
 
 api_key = "your-vat-api-key"
 
@@ -51,7 +51,7 @@ print(response)
 
 ```
 
-Below is the response data:
+Below is the response object:
 ```
 {
     'amount_excluding_vat': '50.00', 
@@ -103,7 +103,7 @@ Below is a code snippet on how to use optional arguments in the `VatAPI.calculat
 
 
 ```python
-from abstract_python.abstract import VatAPI
+from abstract_python import VatAPI
 
 api_key = "your-vat-api-key"
 
@@ -119,7 +119,7 @@ print(response)
 ```
 
 
-Below is the response data:
+Below is the response object:
 ```
 {
     'amount_excluding_vat': '50.00', 

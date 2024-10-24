@@ -30,6 +30,8 @@ virtualenv env
 source ./env/bin/activate
 ```
 
+## Install the library
+
 **Run the command below to install `abstract-python`:**
 
 ```powershell
@@ -38,12 +40,12 @@ pip install abstract-python
 
 ## How to use the library
 
-If you will be using two or more of the available APIs, it is recommended to import the entire library as seen below:
+If your app requires two or more of the supported APIs, it is recommended to import the entire library as seen below:
 
 ```python
-from abstract_python import abstract
+from abstract_python import *
 
-vatAPI = abstract.VatAPI()
+vatAPI = VatAPI()
 ```
 
 <Info>
@@ -51,10 +53,10 @@ vatAPI = abstract.VatAPI()
 </Info>
 
 
-For a single API usage, we recommend the following:
+For single API usage, the following format is recommended:
 
 ```python
-from abstract_python.abstract import VatAPI
+from abstract_python import VatAPI
 
 vatAPI = VatAPI()
 ```
